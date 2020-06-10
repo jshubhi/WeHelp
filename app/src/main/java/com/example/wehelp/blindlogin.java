@@ -10,17 +10,17 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+//import com.google.firebase.auth.FirebaseAuth;
+//import com.google.firebase.auth.FirebaseUser;
 
 public class blindlogin extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private FirebaseAuth mAuth;
+    //private FirebaseAuth mAuth;
     private DrawerLayout mDrawerlayout2;
     private ActionBarDrawerToggle mToggle2;
     private Button b3,b4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mAuth = FirebaseAuth.getInstance();
+       // mAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blindlogin);
         /*mDrawerlayout2=(DrawerLayout) findViewById(R.id.activity_blindlogin);
@@ -76,11 +76,12 @@ public class blindlogin extends AppCompatActivity implements NavigationView.OnNa
         }
         return super.onOptionsItemSelected(item);
     }
+    /*
     @Override
     public void onStart() {
         super.onStart();
         // Check if user is signed in (non-null)
         FirebaseUser currentUser = mAuth.getCurrentUser();
 
-    }
+    } */
 }

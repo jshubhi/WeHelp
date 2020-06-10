@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/loginbackground"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/iamaVisuallyImpaired"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="316dp"
+        android:layout_height="62dp"
+        android:background="@drawable/round_buttons"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="450dp"
+        android:layout_marginBottom="30dp"
+        android:text="I am Visually Impaired"
+        android:textColor="#FBF2F2"
+        android:textColorHighlight="#005F0A0A"
+        android:textColorHint="#234CE6"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        tools:text="I am Visually Impaired" />
+
+    <Button
+        android:id="@+id/i_am_volunteer"
+        style="@style/Widget.AppCompat.Button"
+        android:layout_width="316dp"
+        android:layout_height="62dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/round_buttons"
+        android:text="I am a Volunteer"
+        android:textColor="#FBF2F2"
+        android:textColorHighlight="#005F0A0A"
+        android:textColorHint="#234CE6"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="sans"
+        tools:text="I am a Volunteer" />
+</LinearLayout>

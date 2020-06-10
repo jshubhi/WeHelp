@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <item
+        android:id="@+id/blindverifyme"
+        android:title="Verify Me" />
+    <item
+        android:id="@+id/blindmyprofile"
+        android:title="My Profile" />
+    <item
+        android:id="@+id/blindaboutus"
+        android:title="About Us" />
+    <item
+        android:id="@+id/blindcontactus"
+        android:title="Contact Us" />
+    <item
+        android:id="@+id/blindlogout"
+        android:title="Logout"
+       />
+
+</menu>

@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/appbackground"
+    android:id="@+id/activity_volunteerdashboard"
+    tools:context=".volunteerdashboard">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp"
+            android:textColor="#000000"
+            android:text="Dashboard"
+            android:textAlignment="center"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            android:typeface="sans"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="161dp"
+            android:layout_height="172dp"
+            android:layout_marginStart="91dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="91dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:srcCompat="@drawable/download" />
+
+        <Button
+            android:id="@+id/blindcount"
+            android:layout_width="120dp"
+            android:layout_height="57dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="92dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/volunteerdashbutton3"
+            android:hint="Blind Count"
+            app:layout_constraintBottom_toTopOf="@+id/volunteerdashname"
+            app:layout_constraintEnd_toStartOf="@+id/volunteercount"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/volunteercount"
+            android:layout_width="120dp"
+            android:layout_height="57dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/volunteerdashbutton3"
+            android:hint="Volunteer Count"
+            app:layout_constraintBottom_toTopOf="@+id/volunteerdashname"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            app:layout_constraintVertical_bias="0.125" />
+
+        <Button
+            android:id="@+id/volunteerdashname"
+            android:layout_width="317dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/volunteerdashboardbutton1"
+            android:hint="Volunteer name\nMember Since"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/blindcount" />
+
+        <Button
+            android:id="@+id/volunteerdashnotification"
+            android:layout_width="317dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/volunteerdashbutton2"
+            android:text="You will receive notification when someone needs help"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            android:textColor="#000000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/volunteerdashname" />
+
+        <Button
+            android:id="@+id/volunteerdashanswercall"
+            android:layout_width="317dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="8dp"
+            android:textColor="#000000"
+            android:layout_marginBottom="8dp"
+            android:text="Learn how to answer a call"
+            android:textAlignment="center"
+            android:background="@drawable/volunteerdashbutton2"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/volunteerdashnotification"
+            app:layout_constraintVertical_bias="0.222" />
+            
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/volunteerhamburgermenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/drwer_bg"
+        android:theme="@style/NavigationDrawerStyle"
+        app:itemTextColor="@color/drwer_font"
+        android:layout_gravity="start"
+        app:menu="@menu/volunteerhamburgermenu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

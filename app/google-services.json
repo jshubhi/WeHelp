@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "882816394078",
+    "firebase_url": "https://wehelp-795da.firebaseio.com",
+    "project_id": "wehelp-795da",
+    "storage_bucket": "wehelp-795da.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:882816394078:android:8e4c69d534b2a7a3d865cf",
+        "android_client_info": {
+          "package_name": "com.example.wehelp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "882816394078-3dgblbrb3r3j9goomn7jbulc9b082l85.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.wehelp",
+            "certificate_hash": "926e66a3e7dd9e436600e44b56adef5af67c4e17"
+          }
+        },
+        {
+          "client_id": "882816394078-p3lq0edlhlmj2vqqaippu1csr32epvdr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCbdkxdp_em2v_ex8tEmW1uMI_Y1va2vss"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "882816394078-p3lq0edlhlmj2vqqaippu1csr32epvdr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

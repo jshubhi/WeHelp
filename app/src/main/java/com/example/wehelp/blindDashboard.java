@@ -4,20 +4,24 @@ import android.content.Intent;
 
 import androidx.annotation.NonNull;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 public class blindDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
-    Button callvolunteer=findViewById(R.id.bdashCallvolunteer);
-    Button specialhelp=findViewById(R.id.bdashSpecializedHelp);
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +35,23 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
         mToggle.syncState();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        Button btn = (Button) findViewById(R.id.bdashSpecializedHelp);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                bdashspecializedhelp();
+            }
+        });
 
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
+    }
+    public void bdashspecializedhelp()
+    {
+        Intent intent=new Intent(Intent.ACTION_DIAL);
+        intent.setData(Uri.parse("tel:7777777777"));
+        startActivity(intent);
     }
 
     @Override
@@ -50,9 +70,13 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
                 getSupportFragmentManager().beginTransaction().replace(R.id.activity_blind_dashboard, new myprofile()).addToBackStack(null).commit();
                 break;
             case R.id.blindlogout:
+
+               firebaseAuth.signOut();
+               finish();
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+
         }
         mDrawerlayout.closeDrawer(GravityCompat.START);
         mToggle.onOptionsItemSelected(item);

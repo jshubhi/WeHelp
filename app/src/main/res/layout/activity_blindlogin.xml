@@ -23,7 +23,7 @@
         android:typeface="sans"
         android:background="@drawable/round_buttons_login"
         android:hint=" Username"
-        android:textColor="#FFF9F9"
+        android:textColor="#000000"
         android:textSize="24sp" />
     <EditText
         android:id="@+id/blindPassword"
@@ -34,27 +34,47 @@
         android:typeface="sans"
         android:background="@drawable/round_buttons_login"
         android:hint="Password"
-        android:textColor="#FFF9F9"
+        android:inputType="textPassword"
+        android:textColor="#000000"
         android:textSize="24sp" />
+    <CheckBox
+        android:id="@+id/blindShowPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Show Password" />
 
     <Button
         android:id="@+id/blindlogin"
-        android:layout_width="231dp"
-        android:layout_height="39dp"
+        android:layout_width="230dp"
+        android:layout_height="35dp"
         android:layout_gravity="center"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="3dp"
         android:background="@drawable/login_button"
         android:text=" Login"
         android:textAlignment="center"
         android:textColor="#FDFDFE"
         android:textSize="24sp"
         android:typeface="sans" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:layout_gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="7dp"
+        android:typeface="sans"
+        android:textStyle="bold"
+        android:id="@+id/blindForgotPassword"
+        />
+
 
     <Button
         android:id="@+id/blindsignup"
         android:layout_width="134dp"
         android:layout_height="31dp"
+        android:layout_marginTop="15dp"
         android:layout_gravity="center"
         android:text="SignUp"
         android:textAlignment="center"

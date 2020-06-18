@@ -3,6 +3,8 @@ package com.example.wehelp;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,6 +16,7 @@ import android.view.MenuItem;
 public class volunteerdashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout mDrawerlayout1;
     private ActionBarDrawerToggle mToggle1;
+    private FirebaseAuth firebaseAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +29,7 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
 
         NavigationView navigationView = findViewById(R.id.volunteerhamburgermenu);
         navigationView.setNavigationItemSelectedListener(this);
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
     @Override
@@ -39,6 +43,8 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
                 break;
 
             case R.id.volunteerlogout:
+                firebaseAuth.signOut();
+                finish();
                 Intent intent = new Intent(getApplicationContext(),MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);

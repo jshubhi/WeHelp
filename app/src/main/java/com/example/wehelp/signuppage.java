@@ -7,8 +7,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.text.TextUtils;
+import android.text.method.HideReturnsTransformationMethod;
+import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -22,53 +26,20 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
 
-
 public class signuppage extends AppCompatActivity {
-    FirebaseAuth auth;
-    FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("signin");
-    EditText username,password,phoneno,type,email;
-    Button signup;
-
+    private EditText username,password,phonenumber,type,email;
+    private Button signup;
+    private FirebaseAuth firebaseAuth;
+    private CheckBox cb3;
+    String name,pass,ty,pn,mail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        username=findViewById(R.id.SiUsername);
-        password=findViewById(R.id.SiPassowrd);
-         phoneno=findViewById(R.id.SiPhoneNumber);
-         type=findViewById(R.id.SiType);
-         email=findViewById(R.id.SiEmail);
-
-        signup=findViewById(R.id.SiRegister);
-        auth = FirebaseAuth.getInstance();
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_signuppage);
+   /*     //Toolbar toolbar = findViewById(R.id.toolbar);
+        // setSupportActionBar(toolbar);
 
-        signup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String txt_username = username.getText().toString();
-                String txt_password = password.getText().toString();
-                String txt_phone = phoneno.getText().toString();
-                String txt_type = type.getText().toString();
-                String txt_email = email.getText().toString();
-                if(TextUtils.isEmpty(txt_username) || TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)  || TextUtils.isEmpty(txt_type)  || TextUtils.isEmpty(txt_phone)) {
-                    Toast.makeText(signuppage.this,"All fields are compulsory", Toast.LENGTH_SHORT).show();
-                }
-                else if(txt_password.length()<6) {
-                    Toast.makeText(signuppage.this,"Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
-                }
-                else {
-                    register(txt_username,txt_password,txt_phone,txt_type,txt_email);
-                }
-
-            }
-        });
-
-        //Toolbar toolbar = findViewById(R.id.toolbar);
-       // setSupportActionBar(toolbar);
-
-      /*  FloatingActionButton fab = findViewById(R.id.fab);
+     /*  FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -76,46 +47,111 @@ public class signuppage extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });*/
-    }
-    private void register(final String username,String password,final String phone,final String type,final String email ) {
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()) {
-                            FirebaseUser firebaseUser = auth.getCurrentUser();
-                            assert firebaseUser != null;
-                            String userid = firebaseUser.getUid();
-                            myRef = FirebaseDatabase.getInstance().getReference("signin").child(userid);
+        firebaseAuth= FirebaseAuth.getInstance();
+        setupUIViews();
 
-                            HashMap<String,String> hashMap = new HashMap<>();
-                            hashMap.put("id",userid);
-                            hashMap.put("username",username);
-                            hashMap.put("phone",phone);
-                            hashMap.put("type",type);
-                            hashMap.put("email",email);
-
-                            myRef.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if(task.isSuccessful()){
-                                        Intent intent = new Intent(signuppage.this, MainActivity.class);
-                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                        startActivity(intent);
-                                        finish();
-                                    }
-                                    else
-                                    {
-                                        Toast.makeText(signuppage.this, "Database error",Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                        } else {
-                            Toast.makeText(signuppage.this, "You can't register with this email or password",Toast.LENGTH_SHORT).show();
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(validate()){
+                    //upload to database
+                    String emailaddress;
+                    emailaddress = email.getText().toString().trim();
+                    String passworddd;
+                    passworddd = password.getText().toString().trim();
+                    firebaseAuth.createUserWithEmailAndPassword(emailaddress,passworddd).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                              /* This code is used if we do not want email verification
+                              Toast.makeText(signuppage.this,"Regestration Successful",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(signuppage.this,MainActivity.class));*/
+                              //with Email Verification
+                                sendEmailVerification();
+                                sendUserData();
+                            }
+                            else  {
+                                Toast.makeText(signuppage.this,"Regestration Failed",Toast.LENGTH_LONG).show();
+                            }
                         }
+                    });
+                }
+
+            }
+        });
+    }
+    private void setupUIViews(){
+
+        username=(EditText)findViewById(R.id.SiUsername);
+        password=(EditText)findViewById(R.id.SiPassowrd);
+        cb3= findViewById(R.id.SignInShowPassword);
+        cb3.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked){
+                    password.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
+                }
+                else
+                {
+                    password.setTransformationMethod(PasswordTransformationMethod.getInstance());
+                }
+            }
+        });
+
+        phonenumber=(EditText)findViewById(R.id.SiPhoneNumber);
+        type=(EditText)findViewById(R.id.SiType);
+        email=(EditText)findViewById(R.id.SiEmail);
+        signup=(Button)findViewById(R.id.SiRegister);
+
+    }
+
+    private Boolean validate(){
+        Boolean result = false;
+         name=username.getText().toString();
+         pass=password.getText().toString();
+         mail=email.getText().toString();
+         ty=type.getText().toString();
+         pn=phonenumber.getText().toString();
+
+        if(name.isEmpty() || pass.isEmpty() || mail.isEmpty()|| ty.isEmpty() ||pn.isEmpty() ){
+            Toast.makeText(this,"Please enter all the details",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            result = true;
+        }
+        return result;
+    }
+
+    private void sendEmailVerification()
+     {
+        final FirebaseUser firebaseUser=firebaseAuth.getInstance().getCurrentUser();
+        if(firebaseUser !=null)
+        {
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful())
+                    {
+
+                        Toast.makeText(signuppage.this,"Successfully Registered and Verification mail has been sent to your registered email address",Toast.LENGTH_LONG).show();
+                        firebaseAuth.signOut();
+                        finish();
+                        startActivity(new Intent(signuppage.this,MainActivity.class));
                     }
-                });
+                    else
+                    {
+                        Toast.makeText(signuppage.this,"Verification mail hasn't been sent",Toast.LENGTH_LONG).show();
+                    }
+                }
+            });
+        }
     }
 
+    private void sendUserData()
+    {
+        FirebaseDatabase firebaseDatabase =FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
+        UserProfile userProfile= new UserProfile(name,ty,pn,mail);
+        myRef.setValue(userProfile);
     }
-
-
+}

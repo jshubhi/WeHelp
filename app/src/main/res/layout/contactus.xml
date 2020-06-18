@@ -24,29 +24,34 @@
         android:layout_marginTop="100dp"
         android:textSize="28sp"
         android:layout_gravity="center"
+
         />
     <EditText
         android:layout_width="203dp"
         android:layout_height="50dp"
+        android:id="@+id/csName"
         android:layout_gravity="center"
         android:hint="Name"
         android:layout_marginTop="20dp" />
     <EditText
         android:layout_width="203dp"
         android:layout_height="50dp"
+        android:id="@+id/csContact"
         android:layout_gravity="center"
-        android:hint="E-Mail"
+        android:hint="Contact no."
         android:layout_marginTop="20dp" />
     <EditText
         android:layout_width="203dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
-        android:hint="Occupation"
+        android:hint="Subject"
+        android:id="@+id/csSubject"
         android:layout_marginTop="20dp" />
     <EditText
         android:layout_width="203dp"
         android:layout_height="50dp"
         android:layout_gravity="center"
+        android:id="@+id/csMessage"
         android:hint="Message"
         android:layout_marginTop="20dp" />
     <Button
@@ -55,6 +60,7 @@
         android:layout_gravity="center"
         android:background="@drawable/verificationbutton"
         android:layout_marginTop="50dp"
+        android:id="@+id/csSubmit"
         android:text="Submit"
         android:textColor="#FFFFFF"/>
 </LinearLayout>

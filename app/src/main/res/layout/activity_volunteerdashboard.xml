@@ -40,61 +40,30 @@
             app:layout_constraintTop_toBottomOf="@+id/textView"
             app:srcCompat="@drawable/download" />
 
-        <Button
-            android:id="@+id/blindcount"
-            android:layout_width="120dp"
-            android:layout_height="57dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="92dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/volunteerdashbutton3"
-            android:hint="Blind Count"
-            app:layout_constraintBottom_toTopOf="@+id/volunteerdashname"
-            app:layout_constraintEnd_toStartOf="@+id/volunteercount"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <Button
-            android:id="@+id/volunteercount"
-            android:layout_width="120dp"
-            android:layout_height="57dp"
-            android:layout_marginTop="64dp"
-            android:layout_marginEnd="40dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/volunteerdashbutton3"
-            android:hint="Volunteer Count"
-            app:layout_constraintBottom_toTopOf="@+id/volunteerdashname"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView"
-            app:layout_constraintVertical_bias="0.125" />
-
-        <Button
+        <TextView
             android:id="@+id/volunteerdashname"
-            android:layout_width="317dp"
-            android:layout_height="69dp"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="76dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/volunteerdashboardbutton1"
-            android:hint="Volunteer name\nMember Since"
+            android:hint="Volunteer name"
             android:textAlignment="center"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/blindcount" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
         <Button
             android:id="@+id/volunteerdashnotification"
-            android:layout_width="317dp"
-            android:layout_height="38dp"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="40dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/volunteerdashbutton2"
-            android:text="You will receive HERE notification when someone needs help"
+            android:text="You will receive notification HERE when someone needs help"
             android:textAlignment="center"
             android:textSize="15sp"
             android:textColor="#000000"
@@ -104,22 +73,41 @@
 
         <Button
             android:id="@+id/volunteerdashanswercall"
-            android:layout_width="317dp"
+            android:layout_width="330dp"
             android:layout_height="38dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="28dp"
             android:layout_marginEnd="8dp"
-            android:textColor="#000000"
             android:layout_marginBottom="8dp"
+            android:background="@drawable/volunteerdashbutton2"
             android:text="Learn how to answer a call"
             android:textAlignment="center"
-            android:background="@drawable/volunteerdashbutton2"
+            android:textColor="#000000"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/volunteerdashnotification"
             app:layout_constraintVertical_bias="0.222" />
+        <TextView
+            android:id="@+id/v_latTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/volunteerdashanswercall"
+
+            android:text="Latitude: " />
+
+        <TextView
+            android:id="@+id/v_lonTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/v_latTextView"
+            android:text="Longitude: " />
             
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView

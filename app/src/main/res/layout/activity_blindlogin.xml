@@ -16,27 +16,29 @@
 
     <EditText
         android:id="@+id/blindUsername"
-        android:layout_width="237sp"
+        android:layout_width="300dp"
         android:layout_gravity="center"
-        android:layout_height="39sp"
+        android:layout_height="39dp"
         android:layout_marginTop="400dp"
         android:typeface="sans"
+        android:contentDescription="enter email"
         android:background="@drawable/round_buttons_login"
-        android:hint=" Username"
+        android:hint=" Email"
         android:textColor="#000000"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
     <EditText
         android:id="@+id/blindPassword"
-        android:layout_width="237sp"
-        android:layout_height="39sp"
+        android:layout_width="300dp"
+        android:layout_height="39dp"
+        android:contentDescription="enter"
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         android:typeface="sans"
         android:background="@drawable/round_buttons_login"
-        android:hint="Password"
+        android:hint=" Password"
         android:inputType="textPassword"
         android:textColor="#000000"
-        android:textSize="24sp" />
+        android:textSize="20sp" />
     <CheckBox
         android:id="@+id/blindShowPassword"
         android:layout_width="wrap_content"
@@ -50,6 +52,7 @@
         android:layout_height="35dp"
         android:layout_gravity="center"
         android:layout_marginTop="15dp"
+        android:contentDescription="Login "
         android:layout_marginBottom="3dp"
         android:background="@drawable/login_button"
         android:text=" Login"
@@ -60,11 +63,12 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Forgot Password?"
+        android:text="Forgot Password ?"
         android:layout_gravity="center"
         android:textSize="20sp"
         android:layout_marginTop="7dp"
         android:typeface="sans"
+        android:contentDescription="Forgot password"
         android:textStyle="bold"
         android:id="@+id/blindForgotPassword"
         />
@@ -77,6 +81,7 @@
         android:layout_marginTop="15dp"
         android:layout_gravity="center"
         android:text="SignUp"
+        android:contentDescription="Signup"
         android:textAlignment="center"
         android:textColor="#FDFDFE"
         android:textSize="24sp"

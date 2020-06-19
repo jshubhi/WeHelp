@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.wehelp">
-    <uses-permission android:name="android.permission.CAMERA2"/>
-    <uses-permission android:name="android.hardware.camera2.full"/>
-    <uses-permission android:name="android.hardware.camera2"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.CALL_PHONE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".Answercall" android:parentActivityName=".volunteerdashboard"></activity>
         <activity android:name=".volunteerdashboard" />
-        <activity android:name=".blindDashboard"  />
-        <activity android:name=".blindlogin"  />
-        <activity android:name=".forgotPassowrd"/>
-        <activity android:name=".volunteerlogin"  />
-        <activity android:name=".signuppage"
+        <activity android:name=".blindDashboard" />
+        <activity android:name=".blindlogin" />
+        <activity android:name=".forgotPassowrd" />
+        <activity android:name=".volunteerlogin" />
+        <activity
+            android:name=".signuppage"
             android:label="@string/title_activity_signuppage"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -32,6 +28,14 @@
             </intent-filter>
         </activity>
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CAMERA2" />
+    <uses-permission android:name="android.hardware.camera2.full" />
+    <uses-permission android:name="android.hardware.camera2" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 </manifest>

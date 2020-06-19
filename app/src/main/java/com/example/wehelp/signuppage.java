@@ -70,7 +70,7 @@ public class signuppage extends AppCompatActivity {
                                 sendUserData();
                             }
                             else  {
-                                Toast.makeText(signuppage.this,"Regestration Failed",Toast.LENGTH_LONG).show();
+                                Toast.makeText(signuppage.this,"Registration Failed",Toast.LENGTH_LONG).show();
                             }
                         }
                     });

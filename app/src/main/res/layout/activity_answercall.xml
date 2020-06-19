@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="@drawable/appbackground"
-    android:orientation="vertical">
+    tools:context=".Answercall">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Answer Call"
+        android:id="@+id/answer"
         android:layout_marginTop="16dp"
         android:textColor="#000000"
         android:layout_gravity="center"
@@ -17,7 +19,6 @@
         android:textSize="40sp"
         android:textStyle="bold"
         android:typeface="sans"/>
-
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="201dp"
@@ -27,12 +28,13 @@
         app:srcCompat="@drawable/answercall" />
 
     <TextView
+        android:id="@+id/answerinfo"
         android:layout_width="341dp"
-        android:layout_height="161dp"
+        android:layout_height="176dp"
         android:layout_gravity="center"
-        android:textColor="#FFFFFF"
         android:layout_marginTop="80dp"
         android:text="When a blind or visually impaired person requests help, the app notifies multiple volunteers, and the first to respond is connected. Answering a call is easy. When you receive a notification, all you have to do is open it. "
-        android:textSize="20sp"
-        />
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
 </LinearLayout>

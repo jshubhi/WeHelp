@@ -24,18 +24,20 @@
         android:layout_gravity="center"
         android:layout_marginTop="30dp"
         app:srcCompat="@android:drawable/ic_menu_gallery" />
+
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="Change Profile Pic"
         android:id="@+id/MyProfileChangePic"
+        android:layout_width="116dp"
+        android:layout_height="15dp"
+        android:layout_gravity="center"
         android:background="#F5B1C3"
-        />
+        android:textSize="10sp"
+        android:text="Change Profile Pic" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_gravity="center"
         android:hint="NAME"
         android:textSize="20sp"
@@ -59,6 +61,7 @@
             android:id="@+id/profemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
             android:layout_gravity="center"
             android:hint="Email"
             android:textSize="20sp" />
@@ -81,6 +84,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_marginStart="10dp"
             android:hint="Mobile No"
             android:id="@+id/profmobilenumber"
             android:textSize="20sp" />
@@ -96,7 +100,6 @@
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginTop="5dp"
-
             app:srcCompat="@drawable/verificationbutton" />
 
         <TextView
@@ -104,6 +107,7 @@
             android:layout_height="wrap_content"
             android:hint="Type"
             android:textSize="20sp"
+            android:layout_marginStart="10dp"
             android:id="@+id/proftype"
             android:layout_gravity="center"
             />

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class contactus extends Fragment {
     EditText csName,csContact,csSubject,csMessage;
@@ -27,9 +28,9 @@ public class contactus extends Fragment {
         csSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                mailing();
-
+               if(validate() ){
+                    mailing();
+                }
             }
         });
 
@@ -53,6 +54,34 @@ public class contactus extends Fragment {
 
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent,"Choose an Email Client"));
+    }
+
+    private Boolean validate(){
+        Boolean result = false;
+
+        String subject= csSubject.getText().toString();
+        String name= csName.getText().toString();
+        String contact= csContact.getText().toString();
+        String message= csMessage.getText().toString();
+
+        if(subject.isEmpty()) {
+            Toast.makeText(getActivity(), "Please enter Email-Id", Toast.LENGTH_SHORT).show();
+        }
+
+        else if(name.isEmpty()){
+            Toast.makeText(getActivity(),"Please enter name",Toast.LENGTH_SHORT).show();
+        }
+        else if(contact.isEmpty()){
+            Toast.makeText(getActivity(),"Please enter phone number",Toast.LENGTH_SHORT).show();
+        }
+        else if(message.isEmpty()){
+            Toast.makeText(getActivity(),"Please enter message",Toast.LENGTH_SHORT).show();
+        }
+
+        else {
+            result = true;
+        }
+        return result;
     }
 
 }

@@ -14,6 +14,7 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -51,6 +52,28 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
         mDrawerlayout = (DrawerLayout) findViewById(R.id.activity_blind_dashboard);
         NavigationView navigationView = findViewById(R.id.blindhamburgermenu);
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        //  bottomNavigationView.setSelectedItemId(R.id.nav_home);
+        BottomNavigationView bottomNavigationView=findViewById(R.id.bdashbottomnavigation);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                switch (menuItem.getItemId()){
+                    case R.id.nav_home:
+
+                        return true;
+                    case R.id.nav_settings:
+
+                        getSupportFragmentManager().beginTransaction().replace(R.id.activity_blind_dashboard, new blindsettings()).commit();
+                        break;
+            }
+                return false;
+            }
+        });
+
+
+
         mToggle = new ActionBarDrawerToggle(this, mDrawerlayout, R.string.Open, R.string.Close);
         mDrawerlayout.addDrawerListener(mToggle);
         mToggle.syncState();
@@ -184,19 +207,22 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
             case R.id.blindmyprofile:
                 getSupportFragmentManager().beginTransaction().replace(R.id.activity_blind_dashboard, new myprofile()).addToBackStack(null).commit();
                 break;
-            case R.id.blindlogout:
-
-               firebaseAuth.signOut();
-               finish();
-                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+            case R.id.blindlogout: {
+                firebaseAuth.signOut();
+                finish();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
+            }
+
 
         }
+
         mDrawerlayout.closeDrawer(GravityCompat.START);
         mToggle.onOptionsItemSelected(item);
         return true;
     }
+
 
 
 /*    @Override

@@ -1,6 +1,7 @@
 package com.example.wehelp;
 
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 
@@ -10,7 +11,11 @@ import com.google.android.material.navigation.NavigationView;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.SharedPreferences;
+import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
+import android.os.CancellationSignal;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.MenuItem;
@@ -25,6 +30,10 @@ import android.widget.Toast;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
+
 //implements NavigationView.OnNavigationItemSelectedListener
 public class blindlogin extends AppCompatActivity  {
     private FirebaseAuth mAuth;
@@ -55,23 +64,44 @@ public class blindlogin extends AppCompatActivity  {
 
             }
         });
-        b3=(Button)findViewById(R.id.blindlogin);
-        b3.setOnClickListener(new View.OnClickListener() {
-          @Override
-          public void onClick(View v)
-            {
-              startblogin();
-            }
-      });
 
-        FirebaseUser user =firebaseAuth.getCurrentUser();//check weather user is logged in or not
-        if(user != null)
-        {
-            finish();
-            startActivity(new Intent(this,blindDashboard.class));
+        //check weather user is logged in or not,if logged in it ask fingerprint for logging again
+        FirebaseUser user =firebaseAuth.getCurrentUser();
+        if(user != null) {
+            blindsettings b = new blindsettings();
+            if (b.validation())
+            {
+                finish();
+                //
+                final Executor executor = Executors.newSingleThreadExecutor();
+                final BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(this)
+                        .setTitle("FingerPrintAuthentication for loging in ")
+
+                        .setNegativeButton("cancel", executor, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).build();
+
+                biometricPrompt.authenticate(new CancellationSignal(), executor, new BiometricPrompt.AuthenticationCallback() {
+                    @Override
+                    public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
+                        // super.onAuthenticationSucceeded(result);
+                        startActivity(new Intent(blindlogin.this, blindDashboard.class));
+
+                    }
+                });
+            }
+            else
+            {
+                startActivity(new Intent(blindlogin.this, blindDashboard.class));
+            }
         }
         blindEmail=(EditText)findViewById(R.id.blindUsername);
         blindPass=(EditText)findViewById(R.id.blindPassword);
+
+
 
         //For converting password into dots
         cb1= findViewById(R.id.blindShowPassword);
@@ -88,6 +118,10 @@ public class blindlogin extends AppCompatActivity  {
             }
         });
 
+
+
+
+        //FORGOT PASSWORD
         tv1 = (TextView)findViewById(R.id.blindForgotPassword);
         tv1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,32 +131,47 @@ public class blindlogin extends AppCompatActivity  {
         });
 
 
+        //FINGERPRINT AUTHENTICATION
+       /* final Executor executor= Executors.newSingleThreadExecutor();
+        final BiometricPrompt biometricPrompt =new BiometricPrompt.Builder(this)
+                .setTitle("FingerPrintAuthentication")
+                .setSubtitle("Subtitle")
+                .setDescription("Description")
+                .setNegativeButton("cancel", executor, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                }).build();*/
+
+
+        b3=(Button)findViewById(R.id.blindlogin);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+              /*  biometricPrompt.authenticate(new CancellationSignal(), executor, new BiometricPrompt.AuthenticationCallback() {
+                    @Override
+                    public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
+                       // super.onAuthenticationSucceeded(result);
+                        startblogin();
+
+                    }
+                });*/
+                startblogin();
+            }
+
+
+        });
+
+
     }
     public void startbsignup(){
         Intent I1= new Intent(this,signuppage.class);
         startActivity(I1);
     }
 
-   /* @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.volunteeraboutus:
-                getSupportFragmentManager().beginTransaction().replace(R.id.activity_blindlogin, new aboutus()).commit();
-                break;
-            case R.id.volunteercontactus:
-                getSupportFragmentManager().beginTransaction().replace(R.id.activity_blindlogin, new contactus()).commit();
-                break;
-        }
-        mToggle2.onOptionsItemSelected(item);
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        if(mToggle2.onOptionsItemSelected(item)){
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
+
    public void startblogin(){
        if(validate())
        {
@@ -146,13 +195,7 @@ public class blindlogin extends AppCompatActivity  {
    }
 
 
-   /* @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null)
-        FirebaseUser currentUser = mAuth.getCurrentUser();
 
-    }*/
 
     private Boolean validate(){
         Boolean result = false;

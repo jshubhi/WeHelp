@@ -1,5 +1,6 @@
 package com.example.wehelp;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import androidx.annotation.NonNull;
 
@@ -13,7 +14,10 @@ import com.google.firebase.auth.FirebaseUser;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.hardware.biometrics.BiometricPrompt;
 import android.os.Bundle;
+import android.os.CancellationSignal;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.MenuItem;
@@ -24,6 +28,9 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class volunteerlogin extends AppCompatActivity  {
     private DrawerLayout mDrawerlayout3;
@@ -80,10 +87,36 @@ public class volunteerlogin extends AppCompatActivity  {
 
         //TO check weather user is logged in or not
          FirebaseUser user1 =firebaseAuth.getCurrentUser();
-        if(user1 != null)
-        {
-            finish();
-            startActivity(new Intent(this,volunteerdashboard.class));
+        if(user1 != null) {
+            blindsettings b = new blindsettings();
+            if (b.validation())
+            {
+                finish();
+                //
+                final Executor executor = Executors.newSingleThreadExecutor();
+                final BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(this)
+                        .setTitle("FingerPrintAuthentication for loging in ")
+
+                        .setNegativeButton("cancel", executor, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).build();
+
+                biometricPrompt.authenticate(new CancellationSignal(), executor, new BiometricPrompt.AuthenticationCallback() {
+                    @Override
+                    public void onAuthenticationSucceeded(BiometricPrompt.AuthenticationResult result) {
+                        // super.onAuthenticationSucceeded(result);
+                        startActivity(new Intent(getApplicationContext(), volunteerdashboard.class));
+
+                    }
+                });
+            }
+            else
+            {
+                startActivity(new Intent(getApplicationContext(), volunteerdashboard.class));
+            }
         }
 
 

@@ -1,119 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/appbackground">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MyProfile"
-        android:textColor="#000000"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        android:textSize="40sp"
-        android:layout_gravity="center"
-        />
+    android:background="@drawable/appbackground"
+    android:id="@+id/activity_volunteerdashboard"
+    tools:context=".volunteerdashboard">
 
-    <ImageView
-        android:id="@+id/MyProfilePicView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        app:srcCompat="@android:drawable/ic_menu_gallery" />
-
-    <Button
-        android:id="@+id/MyProfileChangePic"
-        android:layout_width="116dp"
-        android:layout_height="15dp"
-        android:layout_gravity="center"
-        android:background="#F5B1C3"
-        android:textSize="10sp"
-        android:text="Change Profile Pic" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_gravity="center"
-        android:hint="NAME"
-        android:textSize="20sp"
-        android:id="@+id/profname"
-
-        android:textStyle="bold" />
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp">
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/appbackground">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MyProfile"
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:textSize="40sp"
+            android:layout_gravity="center"
+            />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
+            android:id="@+id/MyProfilePicView"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
+            app:srcCompat="@android:drawable/ic_menu_gallery" />
 
-            app:srcCompat="@android:drawable/ic_dialog_email" />
+        <Button
+            android:id="@+id/MyProfileChangePic"
+            android:layout_width="116dp"
+            android:layout_height="15dp"
+            android:layout_gravity="center"
+            android:background="#F5B1C3"
+            android:textSize="10sp"
+            android:text="Change Profile Pic" />
 
         <TextView
-            android:id="@+id/profemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center"
-            android:hint="Email"
-            android:textSize="20sp" />
+            android:hint="NAME"
+            android:textSize="20sp"
+            android:id="@+id/profname"
+
+            android:textStyle="bold" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+
+                app:srcCompat="@android:drawable/ic_dialog_email" />
+
+            <TextView
+                android:id="@+id/profemail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_gravity="center"
+                android:hint="Email"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp">
-
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="5dp"
-            app:srcCompat="@android:drawable/stat_sys_speakerphone" />
-
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
-            android:hint="Mobile No"
-            android:id="@+id/profmobilenumber"
-            android:textSize="20sp" />
+            android:layout_marginTop="20dp">
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp" >
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@android:drawable/stat_sys_speakerphone" />
 
-        <ImageView
-            android:layout_width="35dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="5dp"
-            app:srcCompat="@drawable/verificationbutton" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:hint="Mobile No"
+                android:id="@+id/profmobilenumber"
+                android:textSize="20sp" />
 
-        <TextView
+        </LinearLayout>
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Type"
-            android:textSize="20sp"
-            android:layout_marginStart="10dp"
-            android:id="@+id/proftype"
             android:layout_gravity="center"
-            />
+            android:layout_marginTop="20dp" >
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="5dp"
+                app:srcCompat="@drawable/verificationbutton" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Type"
+                android:textSize="20sp"
+                android:layout_marginStart="10dp"
+                android:id="@+id/proftype"
+                android:layout_gravity="center"
+                />
+        </LinearLayout>
+
+
+
+
     </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/volunteerhamburgermenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/drwer_bg"
+        android:theme="@style/NavigationDrawerStyle"
+        app:itemTextColor="@color/drwer_font"
+        android:layout_gravity="start"
+        app:menu="@menu/volunteerhamburgermenu" />
 
-
-
-
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

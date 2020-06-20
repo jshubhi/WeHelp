@@ -75,7 +75,7 @@ public class blindlogin extends AppCompatActivity  {
                 //
                 final Executor executor = Executors.newSingleThreadExecutor();
                 final BiometricPrompt biometricPrompt = new BiometricPrompt.Builder(this)
-                        .setTitle("FingerPrintAuthentication for loging in ")
+                        .setTitle("Finger Print Authentication Required for loging in ")
 
                         .setNegativeButton("cancel", executor, new DialogInterface.OnClickListener() {
                             @Override

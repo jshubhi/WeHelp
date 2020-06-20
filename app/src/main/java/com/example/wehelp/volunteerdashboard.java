@@ -32,10 +32,16 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class volunteerdashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout mDrawerlayout1;
     private ActionBarDrawerToggle mToggle1;
+    private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
@@ -64,6 +70,26 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
         });
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
+        //getting name in vounteer dashboard
+        final TextView profusername = (TextView) findViewById(R.id.volunteerdashname);
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
+                profusername.setText(userProfile.getUsername());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(volunteerdashboard.this, "Database Error", Toast.LENGTH_SHORT).show();
+                //When class is extending fragment it is necessary to use getActivity() since fragment is a subclass of activity.
+
+            }
+        });
+        //END of getting name in vounteer dashboard
     }
     public void openanswercall(){
         Intent intentv = new Intent(volunteerdashboard.this, Answercall.class);

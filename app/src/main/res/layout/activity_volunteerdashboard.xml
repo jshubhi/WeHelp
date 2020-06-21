@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/appbackground"
     android:id="@+id/activity_volunteerdashboard"
+    tools:openDrawer="start"
     tools:context=".volunteerdashboard">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"

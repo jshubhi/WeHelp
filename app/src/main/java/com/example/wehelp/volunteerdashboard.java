@@ -47,7 +47,7 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_volunteerdashboard);
-        mDrawerlayout1=(DrawerLayout) findViewById(R.id.activity_volunteerdashboard);
+        mDrawerlayout1=findViewById(R.id.activity_volunteerdashboard);
         mToggle1=new ActionBarDrawerToggle(this,mDrawerlayout1,R.string.Open,R.string.Close);
         mDrawerlayout1.addDrawerListener(mToggle1);
         mToggle1.syncState();
@@ -67,6 +67,16 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
     }
+
+    @Override
+    public void onBackPressed() {
+        if(mDrawerlayout1.isDrawerOpen(GravityCompat.START)){
+            mDrawerlayout1.closeDrawer(GravityCompat.START);
+        }else {
+            super.onBackPressed();
+        }
+    }
+
     public void openanswercall(){
         Intent intentv = new Intent(volunteerdashboard.this, Answercall.class);
         startActivity(intentv);
@@ -171,6 +181,7 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
         switch (item.getItemId()) {
             case R.id.volunteeraboutus:
                 getSupportFragmentManager().beginTransaction().replace(R.id.activity_volunteerdashboard, new aboutus()).addToBackStack(null).commit();
+
                 break;
             case R.id.volunteercontactus:
                 getSupportFragmentManager().beginTransaction().replace(R.id.activity_volunteerdashboard, new contactus()).addToBackStack(null).commit();
@@ -188,6 +199,7 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
         mToggle1.onOptionsItemSelected(item);
         return true;
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item != null && item.getItemId() == android.R.id.home) {
@@ -200,4 +212,6 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
         }
         return false;
     }
+
+
 }

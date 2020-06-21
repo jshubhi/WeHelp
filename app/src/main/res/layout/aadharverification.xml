@@ -1,50 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/appbackground"
-    android:orientation="vertical">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Verification"
-        android:textSize="40sp"
-        android:textColor="#000000"
-        android:layout_marginTop="16dp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:text="Enter your Aadhar No:"
-        android:textSize="28sp"
-        android:textColor="#000000"
-        android:layout_marginTop="230dp"
-        android:textStyle="bold"
-        android:layout_gravity="center"
-        />
+    android:id="@+id/activity_volunteerdashboard"
+    tools:context=".volunteerdashboard">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/appbackground"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Verification"
+            android:textSize="40sp"
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Enter your Aadhar No:"
+            android:textSize="28sp"
+            android:textColor="#000000"
+            android:layout_marginTop="230dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            />
 
-    <EditText
-        android:id="@+id/adhaar"
-        android:layout_width="352dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="@drawable/volunteerdashbutton2"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-    <Button
+        <EditText
+            android:id="@+id/adhaar"
+            android:layout_width="352dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/volunteerdashbutton2"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="@drawable/verificationbutton"
+            android:layout_marginTop="50dp"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:text="Send for Verification"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/volunteerhamburgermenu"
         android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:background="@drawable/verificationbutton"
-        android:layout_marginTop="50dp"
-        android:padding="10dp"
-        android:textSize="20sp"
-        android:textColor="#FFFFFF"
-        android:text="Send for Verification"
-        android:layout_gravity="center"
-        />
+        android:layout_height="match_parent"
+        android:background="@color/drwer_bg"
+        android:theme="@style/NavigationDrawerStyle"
+        app:itemTextColor="@color/drwer_font"
+        android:layout_gravity="start"
+        app:menu="@menu/volunteerhamburgermenu" />
 
-
-</LinearLayout>
+</androidx.drawerlayout.widget.DrawerLayout>

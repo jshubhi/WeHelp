@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
     public void startvolunteerloginpage(){
         Intent I1 =new Intent(this, volunteerlogin.class);
@@ -41,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
     public void startblindloginpage(){
         Intent I2 =new Intent(this, blindlogin.class);
         startActivity(I2);
+
+
     }
 
     @Override

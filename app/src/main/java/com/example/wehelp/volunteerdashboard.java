@@ -44,6 +44,7 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     int PERMISSION_ID = 44;
+    int btn=0;
     FusedLocationProviderClient mFusedLocationClient;
     TextView v_latTextView, v_lonTextView;
     Button learn;
@@ -90,6 +91,33 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
             }
         });
         //END of getting name in vounteer dashboard
+        //Notification
+       /* Button toast =(Button)findViewById(R.id.TOAST);
+        toast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Toast.makeText(volunteerdashboard.this,"Verify your Mobile number",Toast.LENGTH_SHORT).show();
+
+            }
+        });*/
+        Button notification =(Button)findViewById(R.id.volunteerdashnotification);
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               if(btn==0)
+               {
+                   Toast.makeText(volunteerdashboard.this,"Verify your Mobile number",Toast.LENGTH_SHORT).show();
+                   btn++;
+               }
+               else {
+                   Intent otpintent=new Intent(volunteerdashboard.this,volunteernotification.class);
+                   startActivity(otpintent);
+               }
+                // Toast.makeText(volunteerdashboard.this,"Verify your Mobile number",Toast.LENGTH_SHORT).show();
+               // Intent otpintent=new Intent(volunteerdashboard.this,volunteernotification.class);
+                //startActivity(otpintent);
+            }
+        });
     }
 
     @Override
@@ -209,6 +237,9 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
                 break;
             case R.id.volunteercontactus:
                 getSupportFragmentManager().beginTransaction().replace(R.id.activity_volunteerdashboard, new contactus()).addToBackStack(null).commit();
+                break;
+            case R.id.volunteerotpverify:
+                getSupportFragmentManager().beginTransaction().replace(R.id.activity_volunteerdashboard, new volunteermobileverification()).addToBackStack(null).commit();
                 break;
 
             case R.id.volunteerlogout:

@@ -1,6 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/appbackground"
+    android:id="@+id/volunteermobileverification"
+    tools:context=".volunteerdashboard">
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/appbackground"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Phone Verification"
+            android:textSize="40sp"
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+        <EditText
+            android:id="@+id/volunteermobilenumber"
+            android:layout_width="352dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:hint="Enter your Phone No:"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/volunteerdashbutton2"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/volunteermobileotp"
+            android:layout_width="352dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/volunteerdashbutton2"
+            android:textSize="20sp"
+            android:hint="Enter Your OTP"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="There Was Some Error"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:id="@+id/otperror"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            android:layout_marginTop="50dp"
+            />
+        <Button
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:background="@drawable/verificationbutton"
+            android:layout_marginTop="77dp"
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:text="Get OTP"
+            android:layout_gravity="center"
+
+
+            android:id="@+id/volunteermobileverify"
+            />
+
+
+    </LinearLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/volunteerhamburgermenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:background="@color/drwer_bg"
+        android:theme="@style/NavigationDrawerStyle"
+        app:itemTextColor="@color/drwer_font"
+        android:layout_gravity="start"
+        app:menu="@menu/volunteerhamburgermenu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

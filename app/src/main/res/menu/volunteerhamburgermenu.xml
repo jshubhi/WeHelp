@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/volunteeraboutus" android:title="About Us"/>
+    <item android:id="@+id/volunteerotpverify" android:title="Phone Verification"/>
     <item android:id="@+id/volunteercontactus" android:title="Contact Us"/>
     <item
         android:id="@+id/volunteerlogout"

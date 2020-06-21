@@ -7,6 +7,7 @@
     tools:context=".signuppage"
     android:background="@drawable/appbackground"
     android:orientation="vertical"
+    android:id="@+id/signuppage"
     >
     <TextView
         android:id="@+id/SignIn"

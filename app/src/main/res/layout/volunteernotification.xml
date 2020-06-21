@@ -5,72 +5,56 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/appbackground"
-    android:id="@+id/contactus"
+    android:id="@+id/activity_volunteerdashboard"
     tools:context=".volunteerdashboard">
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
         android:background="@drawable/appbackground"
-        >
+        android:orientation="vertical">
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Contact Us"
-            android:layout_marginTop="16dp"
-            android:textColor="#000000"
-            android:textStyle="bold"
+            android:layout_height="50dp"
+            android:text="Verification"
             android:textSize="40sp"
+            android:textColor="#000000"
+            android:layout_marginTop="16dp"
+            android:textStyle="bold"
             android:layout_gravity="center"
             />
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="We'd love to hear from you"
-            android:textStyle="bold"
-            android:textColor="#000000"
-            android:layout_marginTop="100dp"
+            android:layout_height="50dp"
+            android:text="Enter your Aadhar No:"
             android:textSize="28sp"
+            android:textColor="#000000"
+            android:layout_marginTop="230dp"
+            android:textStyle="bold"
             android:layout_gravity="center"
-
             />
+
         <EditText
-            android:layout_width="203dp"
-            android:layout_height="50dp"
-            android:id="@+id/csName"
-            android:layout_gravity="center"
-            android:hint="Name"
-            android:layout_marginTop="20dp" />
-        <EditText
-            android:layout_width="203dp"
-            android:layout_height="50dp"
-            android:id="@+id/csContact"
-            android:layout_gravity="center"
-            android:hint="Contact no."
-            android:layout_marginTop="20dp" />
-        <EditText
-            android:layout_width="203dp"
+            android:id="@+id/adhaar"
+            android:layout_width="352dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:hint="Subject"
-            android:id="@+id/csSubject"
-            android:layout_marginTop="20dp" />
-        <EditText
-            android:layout_width="203dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center"
-            android:id="@+id/csMessage"
-            android:hint="Message"
-            android:layout_marginTop="20dp" />
+            android:layout_marginTop="10dp"
+            android:background="@drawable/volunteerdashbutton2"
+            android:textSize="20sp"
+            android:textStyle="bold" />
         <Button
-            android:layout_width="203dp"
-            android:layout_height="39dp"
-            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
             android:background="@drawable/verificationbutton"
             android:layout_marginTop="50dp"
-            android:id="@+id/csSubmit"
-            android:text="Submit"
-            android:textColor="#FFFFFF"/>
+            android:padding="10dp"
+            android:textSize="20sp"
+            android:textColor="#FFFFFF"
+            android:text="Send for Verification"
+            android:layout_gravity="center"
+            />
+
+
     </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/volunteerhamburgermenu"

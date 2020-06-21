@@ -73,18 +73,7 @@
             app:layout_constraintTop_toBottomOf="@+id/volunteerdashname" />
 
 
-        <Button
-            android:layout_width="15dp"
-            android:layout_height="11dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/volunteerdashbutton2"
-            android:text="."
-            android:id="@+id/TOAST"
-            app:layout_constraintBottom_toTopOf="@+id/volunteerdashanswercall"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/volunteerdashnotification"
-            app:layout_constraintVertical_bias="0.0" />
+
 
         <Button
             android:id="@+id/volunteerdashanswercall"

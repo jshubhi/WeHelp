@@ -28,11 +28,11 @@
         android:layout_gravity="center"
         android:layout_height="39dp"
         android:layout_below="@+id/SignIn"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="50dp"
         android:contentDescription="enter username"
         android:background="@drawable/signin_pagebutton"
         android:hint=" Username"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:typeface="sans" />
 
 
@@ -45,16 +45,16 @@
         android:contentDescription="enter password"
         android:layout_alignParentStart="true"
         android:inputType="textPassword"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/signin_pagebutton"
         android:hint=" Password"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:typeface="sans" />
     <CheckBox
         android:id="@+id/SignInShowPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="5dp"
         android:layout_gravity="center"
         android:text="Show Password" />
 
@@ -66,10 +66,10 @@
         android:layout_height="39dp"
         android:layout_below="@+id/SiPassowrd"
         android:contentDescription="enter phone number"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/signin_pagebutton"
         android:hint=" Phone Number"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:typeface="sans" />
 
     <EditText
@@ -77,11 +77,11 @@
         android:layout_width="300dp"
         android:layout_height="39dp"
         android:layout_gravity="center"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="35dp"
         android:contentDescription="enter whether blind or volunteer"
         android:background="@drawable/signin_pagebutton"
-        android:hint="Volunteer / Blind"
-        android:textSize="24sp"
+        android:hint=" Volunteer / Blind"
+        android:textSize="20sp"
         android:typeface="sans" />
 
     <EditText
@@ -91,10 +91,10 @@
         android:layout_gravity="center"
         android:layout_below="@+id/SiPhoneNumber"
         android:contentDescription="enter email"
-        android:layout_marginTop="41dp"
+        android:layout_marginTop="35dp"
         android:background="@drawable/signin_pagebutton"
         android:hint=" E-Mail"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:typeface="sans" />
 
     <Button
@@ -103,13 +103,13 @@
         android:layout_height="39dp"
         android:layout_alignParentStart="true"
         android:layout_gravity="center"
-        android:layout_marginTop="91dp"
+        android:layout_marginTop="35dp"
         android:contentDescription="signup "
         android:background="@drawable/login_button"
         android:text="Register"
         android:textAlignment="center"
         android:textColor="#FDFDFE"
-        android:textSize="24sp"
+        android:textSize="20sp"
         android:typeface="sans" />
 
 </LinearLayout>

@@ -36,12 +36,15 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class blindDashboard extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout mDrawerlayout;
     private ActionBarDrawerToggle mToggle;
     private FirebaseAuth firebaseAuth;
     int PERMISSION_ID = 44;
+    //private FirebaseDatabase firebaseDatabase;
     FusedLocationProviderClient mFusedLocationClient;
     TextView latTextView, lonTextView;
 
@@ -52,6 +55,8 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
         mDrawerlayout = (DrawerLayout) findViewById(R.id.activity_blind_dashboard);
         NavigationView navigationView = findViewById(R.id.blindhamburgermenu);
         navigationView.setNavigationItemSelectedListener(this);
+        //firebaseDatabase = FirebaseDatabase.getInstance();
+        //DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
 
 
         //  bottomNavigationView.setSelectedItemId(R.id.nav_home);

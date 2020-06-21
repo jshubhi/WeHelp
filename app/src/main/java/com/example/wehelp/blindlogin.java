@@ -8,12 +8,15 @@ import androidx.annotation.NonNull;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+
+import androidx.annotation.RequiresApi;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.SharedPreferences;
 import android.hardware.biometrics.BiometricPrompt;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CancellationSignal;
 import android.text.method.HideReturnsTransformationMethod;
@@ -45,6 +48,7 @@ public class blindlogin extends AppCompatActivity  {
     private CheckBox cb1;
     private TextView tv1;
 
+    @RequiresApi(api = Build.VERSION_CODES.P)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         firebaseAuth = FirebaseAuth.getInstance();

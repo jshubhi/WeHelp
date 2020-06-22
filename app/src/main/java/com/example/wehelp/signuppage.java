@@ -65,7 +65,7 @@ public class signuppage extends AppCompatActivity {
                               /* This code is used if we do not want email verification
                               Toast.makeText(signuppage.this,"Regestration Successful",Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(signuppage.this,MainActivity.class));*/
-                              //with Email Verification
+                                //with Email Verification
                                 sendEmailVerification();
                                 sendUserData();
                             }
@@ -106,11 +106,11 @@ public class signuppage extends AppCompatActivity {
 
     private Boolean validate(){
         Boolean result = false;
-         name=username.getText().toString();
-         pass=password.getText().toString();
-         mail=email.getText().toString();
-         ty=type.getText().toString();
-         pn=phonenumber.getText().toString();
+        name=username.getText().toString();
+        pass=password.getText().toString();
+        mail=email.getText().toString();
+        ty=type.getText().toString();
+        pn=phonenumber.getText().toString();
 
         if(name.isEmpty() || pass.isEmpty() || mail.isEmpty()|| ty.isEmpty() ||pn.isEmpty() ){
             Toast.makeText(this,"Please enter all the details",Toast.LENGTH_SHORT).show();
@@ -122,7 +122,7 @@ public class signuppage extends AppCompatActivity {
     }
 
     private void sendEmailVerification()
-     {
+    {
         final FirebaseUser firebaseUser=firebaseAuth.getInstance().getCurrentUser();
         if(firebaseUser !=null)
         {

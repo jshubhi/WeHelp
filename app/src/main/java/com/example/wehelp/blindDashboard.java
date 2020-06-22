@@ -72,7 +72,7 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
 
                         getSupportFragmentManager().beginTransaction().replace(R.id.activity_blind_dashboard, new blindsettings()).commit();
                         break;
-            }
+                }
                 return false;
             }
         });
@@ -219,7 +219,7 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
-            
+
 
         }
 
@@ -230,13 +230,13 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
 
 
 
-/*    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (mToggle.onOptionsItemSelected(item)) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }*/
+    /*    @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            if (mToggle.onOptionsItemSelected(item)) {
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }*/
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item != null && item.getItemId() == android.R.id.home) {

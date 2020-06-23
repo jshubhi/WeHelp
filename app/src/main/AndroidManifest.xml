@@ -9,15 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VolunteerNotification"></activity>
+        <activity android:name=".VolunteerNotification"
+            android:parentActivityName=".volunteerdashboard"/>
         <activity
             android:name=".Answercall"
             android:parentActivityName=".volunteerdashboard" />
         <activity android:name=".volunteerdashboard" />
         <activity android:name=".blindDashboard" />
-        <activity android:name=".blindlogin" />
+        <activity android:name=".blindlogin"
+            android:parentActivityName=".MainActivity"/>
         <activity android:name=".forgotPassowrd" />
-        <activity android:name=".volunteerlogin" />
+        <activity android:name=".volunteerlogin"
+            android:parentActivityName=".MainActivity"/>
         <activity
             android:name=".signuppage"
             android:label="@string/title_activity_signuppage"

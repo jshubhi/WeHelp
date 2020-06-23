@@ -36,11 +36,11 @@
 
         <Button
             android:id="@+id/MyProfileChangePic"
-            android:layout_width="116dp"
-            android:layout_height="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
             android:layout_gravity="center"
             android:background="#F5B1C3"
-            android:textSize="10sp"
+            android:textSize="15sp"
             android:text="Change Profile Pic" />
 
         <TextView

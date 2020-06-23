@@ -33,7 +33,7 @@ tools:context=".VolunteerNotification">
         android:id="@+id/latlongdisplay"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:hint="Recent notifications here :"
+        android:hint="Recent notifications will be displayed here :"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,7 +41,7 @@ tools:context=".VolunteerNotification">
         app:layout_constraintHorizontal_bias="0.369"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.188" />
+        app:layout_constraintVertical_bias="0.166" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

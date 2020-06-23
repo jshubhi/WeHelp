@@ -58,7 +58,7 @@ public class volunteermobileverification extends Fragment {
             public void onClick(View v) {
 
                 String phoneNumber = number.getText().toString().trim();
-                String finalnumber = "+1" + phoneNumber;
+                String finalnumber = "+91" + phoneNumber;
                 if (phoneNumber.length()!=10)
                 {
                     Toast.makeText(getActivity(),"Enter a Valid Mobile Number",Toast.LENGTH_SHORT).show();

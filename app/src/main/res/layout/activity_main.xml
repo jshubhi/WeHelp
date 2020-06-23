@@ -15,7 +15,7 @@
         android:layout_height="50dp"
         android:background="@drawable/round_buttons"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="450dp"
+        android:layout_marginTop="500dp"
         android:layout_marginBottom="30dp"
         android:text="I am Visually Impaired"
         android:textColor="#FBF2F2"

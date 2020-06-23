@@ -108,8 +108,8 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
                                 if (location == null) {
                                     requestNewLocationData();
                                 } else {
-                                    latTextView.setText(location.getLatitude()+"");
-                                    lonTextView.setText(location.getLongitude()+"");
+                                    latTextView.setText("Latitude : "+location.getLatitude()+"");
+                                    lonTextView.setText("Longitude : "+location.getLongitude()+"");
                                 }
                             }
                         }
@@ -143,8 +143,8 @@ public class blindDashboard extends AppCompatActivity implements NavigationView.
         @Override
         public void onLocationResult(LocationResult locationResult) {
             Location mLastLocation = locationResult.getLastLocation();
-            latTextView.setText(mLastLocation.getLatitude()+"");
-            lonTextView.setText(mLastLocation.getLongitude()+"");
+            latTextView.setText("Latitude : "+mLastLocation.getLatitude()+"");
+            lonTextView.setText("Longitude : "+mLastLocation.getLongitude()+"");
         }
     };
 

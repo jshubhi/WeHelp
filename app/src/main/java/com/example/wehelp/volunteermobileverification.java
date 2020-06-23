@@ -87,7 +87,7 @@ public class volunteermobileverification extends Fragment {
                         //The abpve one is proper verification of otp but the problem is the app will crash because there are two users
                         //the below lines take to destination irrespective of otp
                         Toast.makeText(getActivity(),"Verification Success",Toast.LENGTH_SHORT).show();
-                        Intent otpintent=new Intent(getActivity(),volunteernotification.class);
+                        Intent otpintent=new Intent(getActivity(),VolunteerNotification.class);
                         startActivity(otpintent);
                     }
                 }
@@ -143,7 +143,7 @@ public class volunteermobileverification extends Fragment {
                             FirebaseUser user = task.getResult().getUser();
                             Log.d(TAG, "signInWithCredential:success");
                             Toast.makeText(getActivity(),"Successssssss",Toast.LENGTH_SHORT).show();
-                            Intent otpintent=new Intent(getActivity(),volunteernotification.class);
+                            Intent otpintent=new Intent(getActivity(),VolunteerNotification.class);
                             startActivity(otpintent);
                             getActivity().finish();
                             // ...

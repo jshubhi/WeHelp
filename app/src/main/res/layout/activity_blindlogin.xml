@@ -67,6 +67,7 @@
         android:layout_gravity="center"
         android:textSize="15sp"
         android:typeface="sans"
+        android:layout_marginTop="2dp"
         android:contentDescription="Forgot password"
         android:textStyle="bold"
         android:id="@+id/blindForgotPassword"

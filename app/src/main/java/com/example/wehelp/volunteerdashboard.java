@@ -80,7 +80,7 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                profusername.setText(userProfile.getUsername());
+                profusername.setText(" Welcome ,"+userProfile.getUsername());
             }
 
             @Override
@@ -110,7 +110,7 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
                    btn++;
                }
                else {
-                   Intent otpintent=new Intent(volunteerdashboard.this,volunteernotification.class);
+                   Intent otpintent=new Intent(volunteerdashboard.this,VolunteerNotification.class);
                    startActivity(otpintent);
                }
                 // Toast.makeText(volunteerdashboard.this,"Verify your Mobile number",Toast.LENGTH_SHORT).show();
@@ -146,8 +146,8 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
                                 if (location == null) {
                                     requestNewLocationData();
                                 } else {
-                                    v_latTextView.setText(location.getLatitude()+"");
-                                    v_lonTextView.setText(location.getLongitude()+"");
+                                    v_latTextView.setText("Latitude : "+location.getLatitude()+"");
+                                    v_lonTextView.setText("Longitude : "+location.getLongitude()+"");
                                 }
                             }
                         }
@@ -181,8 +181,8 @@ public class volunteerdashboard extends AppCompatActivity implements NavigationV
         @Override
         public void onLocationResult(LocationResult locationResult) {
             Location mLastLocation = locationResult.getLastLocation();
-            v_latTextView.setText(mLastLocation.getLatitude()+"");
-            v_lonTextView.setText(mLastLocation.getLongitude()+"");
+            v_latTextView.setText("Latitude : "+mLastLocation.getLatitude()+"");
+            v_lonTextView.setText("Longitude : "+mLastLocation.getLongitude()+"");
         }
     };
 

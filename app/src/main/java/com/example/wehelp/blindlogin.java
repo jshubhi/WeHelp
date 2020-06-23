@@ -190,7 +190,7 @@ public class blindlogin extends AppCompatActivity  {
                    Toast.makeText(blindlogin.this,"Login Successful",Toast.LENGTH_SHORT).show();
                }
                else  {
-                   Toast.makeText(blindlogin.this,"Login Failed",Toast.LENGTH_SHORT).show();
+                   Toast.makeText(blindlogin.this,"Enter correct credentials",Toast.LENGTH_SHORT).show();
                }
            }
        });

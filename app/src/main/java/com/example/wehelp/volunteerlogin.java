@@ -158,7 +158,7 @@ public class volunteerlogin extends AppCompatActivity  {
                         startActivity(new Intent(volunteerlogin.this,volunteerdashboard.class));
                     }
                     else  {
-                        Toast.makeText(volunteerlogin.this,"Login Failed",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(volunteerlogin.this,"Enter correct credentials",Toast.LENGTH_SHORT).show();
                     }
                 }
             });

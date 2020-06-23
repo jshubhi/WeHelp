@@ -28,7 +28,7 @@
             android:layout_width="352dp"
             android:layout_height="50dp"
             android:layout_gravity="center"
-            android:hint="Enter your Phone No:"
+            android:hint=" Enter your Phone No"
             android:layout_marginTop="100dp"
             android:background="@drawable/volunteerdashbutton2"
             android:textSize="20sp"
@@ -42,7 +42,7 @@
             android:layout_marginTop="20dp"
             android:background="@drawable/volunteerdashbutton2"
             android:textSize="20sp"
-            android:hint="Enter Your OTP"
+            android:hint=" Enter Your OTP"
             android:textStyle="bold" />
         <TextView
             android:layout_width="wrap_content"

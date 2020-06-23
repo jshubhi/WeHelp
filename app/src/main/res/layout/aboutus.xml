@@ -36,14 +36,13 @@
             android:layout_marginEnd="20dp"
             app:srcCompat="@drawable/aboutus" />
         <TextView
-            android:layout_width="341dp"
+            android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:textSize="28sp"
+            android:textSize="20sp"
             android:layout_gravity="center"
             android:layout_marginTop="30dp"
-            android:textStyle="bold"
             android:textColor="#FFFFFF"
-            android:text="WeHelp is an app which connects blind and low-vision people with nearby sighted volunteers who can assist representatives for assistance with a single click "/>
+            android:text="WeHelp is an app which connects blind and low-vision people with nearby sighted volunteers who can assist representatives for assistance with a single click. "/>
 
 
     </LinearLayout>

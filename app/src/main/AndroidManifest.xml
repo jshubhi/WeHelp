@@ -9,13 +9,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Answercall" android:parentActivityName=".volunteerdashboard"></activity>
+        <activity android:name=".VolunteerNotification"></activity>
+        <activity
+            android:name=".Answercall"
+            android:parentActivityName=".volunteerdashboard" />
         <activity android:name=".volunteerdashboard" />
         <activity android:name=".blindDashboard" />
         <activity android:name=".blindlogin" />
         <activity android:name=".forgotPassowrd" />
         <activity android:name=".volunteerlogin" />
-        <activity android:name=".volunteernotification"/>
         <activity
             android:name=".signuppage"
             android:label="@string/title_activity_signuppage"
@@ -36,7 +38,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.USE_BIOMETRIC"/>
+    <uses-permission android:name="android.permission.USE_BIOMETRIC" />
+
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 </manifest>

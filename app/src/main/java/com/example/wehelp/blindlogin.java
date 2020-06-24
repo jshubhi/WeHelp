@@ -54,11 +54,6 @@ public class blindlogin extends AppCompatActivity  {
         firebaseAuth = FirebaseAuth.getInstance();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_blindlogin);
-        /*mDrawerlayout2=(DrawerLayout) findViewById(R.id.activity_blindlogin);
-        mToggle2=new ActionBarDrawerToggle(this,mDrawerlayout2,R.string.Open,R.string.Close);
-        mDrawerlayout2.addDrawerListener(mToggle2);
-        mToggle2.syncState();
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);*/
         b4= (Button) findViewById(R.id.blindsignup);
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -133,8 +128,6 @@ public class blindlogin extends AppCompatActivity  {
                 startActivity(new Intent(blindlogin.this,forgotPassowrd.class));
             }
         });
-
-
         //FINGERPRINT AUTHENTICATION
        /* final Executor executor= Executors.newSingleThreadExecutor();
         final BiometricPrompt biometricPrompt =new BiometricPrompt.Builder(this)
@@ -147,8 +140,6 @@ public class blindlogin extends AppCompatActivity  {
 
                     }
                 }).build();*/
-
-
         b3=(Button)findViewById(R.id.blindlogin);
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
